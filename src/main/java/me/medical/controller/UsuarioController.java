@@ -24,34 +24,34 @@ import me.medical.repository.UsuarioRepository;
 public class UsuarioController {
 
 	@Autowired
-	private UsuarioRepository ur;
+	private UsuarioRepository usuarioRepository;
 
 	@Autowired
-	private UsuarioCustomRepository ucr;
+	private UsuarioCustomRepository usuarioCustomRepository;
 
 	@Autowired
 	UsuarioConverter converter;
 
 	@GetMapping("/findAllOne")
 	public List<UsuarioModel> listaUsuarios() {
-		return ur.findAll();
+		return usuarioRepository.findAll();
 	}
 
 	@GetMapping("/findAllTwo")
 	public List<UsuarioDTO> findAll() {
-		List<UsuarioModel> findAll = ur.findAll();
+		List<UsuarioModel> findAll = usuarioRepository.findAll();
 		return converter.entityToDto(findAll);
 	}
 	
 	@GetMapping(path = "/usuario/{id}")
 	public ResponseEntity<UsuarioModel> consultar(@PathVariable("id") Integer id) {
-		return ur.findById(id).map(record -> ResponseEntity.ok().body(record))
+		return usuarioRepository.findById(id).map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/usuario/filter")
 	public List<UsuarioDTO> findUserByRazaoSocial(@RequestParam("razaoSocial") String razaoSocial) {
-		return this.ur.findByRazaoSocialContains(razaoSocial)
+		return this.usuarioRepository.findByRazaoSocialContains(razaoSocial)
 				.stream()
 				.map(UsuarioConverter::converter)
 				.collect(Collectors.toList());
@@ -59,23 +59,41 @@ public class UsuarioController {
 
 	@GetMapping("/usuario/filter/responsavel")
 	public List<UsuarioDTO> findByNomeResponsavel(@RequestParam("nomeResponsavel") String nomeResponsavel) {
-		return ur.findByNomeResponsavel(nomeResponsavel).stream()
+		return usuarioRepository.findByNomeResponsavel(nomeResponsavel).stream()
 				.map(UsuarioConverter::converter)
 				.collect(Collectors.toList());
 	}
 
 	@GetMapping("/usuario/filter/custom")
-	public List<UsuarioDTO> findPersonByCustom(@RequestParam(value = "id", required = false) Integer id,
+	public List<UsuarioDTO> findPersonByCustom(
+			@RequestParam(value = "id", required = false) Integer id,
 			@RequestParam(value = "nomeResponsavel", required = false) String nomeResponsavel) {
-		return ucr.find(id, nomeResponsavel).stream()
+		return usuarioCustomRepository.find(id, nomeResponsavel).stream()
 				.map(UsuarioConverter::converter)
 				.collect(Collectors.toList());
+	}
+	
+	@GetMapping("/usuario/login")
+	public List<UsuarioDTO> login(
+			@RequestParam(value = "email", required = true) String email,
+			@RequestParam(value = "senha", required = true) String senha) {
+		return usuarioCustomRepository.login(email, senha).stream()
+				.map(UsuarioConverter::converter)
+				.collect(Collectors.toList());
+	}
+	
+	@GetMapping("/usuario/login2")
+	public UsuarioDTO login2(
+			@RequestParam(value = "email", required = true) String email,
+			@RequestParam(value = "senha", required = true) String senha) {
+			UsuarioModel usuario = usuarioCustomRepository.login2(email, senha);
+		return converter.entityToDto(usuario);
 	}
 
 	@PostMapping("/save")
 	public UsuarioDTO save(@RequestBody UsuarioDTO dto) {
 		UsuarioModel usuario = converter.dtoToEntity(dto);
-		usuario = ur.save(usuario);
+		usuario = usuarioRepository.save(usuario);
 		return converter.entityToDto(usuario);
 	}
 }

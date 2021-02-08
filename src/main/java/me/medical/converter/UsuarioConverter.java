@@ -36,6 +36,14 @@ public class UsuarioConverter {
         usuario.setId(usuarioModel.getId());
         usuario.setRazaoSocial(usuarioModel.getRazaoSocial());
         usuario.setNomeDoResponsavel(usuarioModel.getNomeDoResponsavel());
+        return usuario;
+    }
+	
+	public static UsuarioDTO converterWithPerfil(UsuarioModel usuarioModel) {
+        var usuario = new UsuarioDTO();
+        usuario.setId(usuarioModel.getId());
+        usuario.setRazaoSocial(usuarioModel.getRazaoSocial());
+        usuario.setNomeDoResponsavel(usuarioModel.getNomeDoResponsavel());
         usuario.setPerfil(usuarioModel.getPerfil());
         return usuario;
     }
