@@ -1,5 +1,6 @@
 package me.medical.controller;
 
+//import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,8 +33,15 @@ public class UsuarioController {
 	@Autowired
 	UsuarioConverter converter;
 
+//	@GetMapping("/findAllOne")
+//	public List<UsuarioModel> listaUsuarios(Principal principal) {
+//		System.out.println(principal.getName());
+//		return usuarioRepository.findAll();
+//	}
+	
 	@GetMapping("/findAllOne")
 	public List<UsuarioModel> listaUsuarios() {
+		System.out.println();
 		return usuarioRepository.findAll();
 	}
 
