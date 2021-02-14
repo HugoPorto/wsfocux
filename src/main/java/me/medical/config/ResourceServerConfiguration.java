@@ -33,12 +33,14 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/v2/api-docs",
+            .antMatchers(
+            		"/v2/api-docs",
                     "/configuration/ui",
                     "/swagger-resources/**",
                     "/configuration/security",
                     "/swagger-ui.html",
-                    "/webjars/**").permitAll()
+                    "/webjars/**", 
+                    "/api/findAllOne/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/login/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('read')")
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('write')")
