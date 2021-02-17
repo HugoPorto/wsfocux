@@ -34,12 +34,6 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http
             .authorizeRequests()
             .antMatchers(
-            		"/v2/api-docs",
-                    "/configuration/ui",
-                    "/swagger-resources/**",
-                    "/configuration/security",
-                    "/swagger-ui.html",
-                    "/webjars/**", 
                     "/api/findAllOne/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/login/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('read')")
@@ -47,8 +41,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .antMatchers(HttpMethod.POST, "/**").access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.PATCH, "/**").access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.PUT, "/rest/**").access("#oauth2.hasScope('write')")
-                .antMatchers(HttpMethod.DELETE, "/**").access("#oauth2.hasScope('write')")
-                ;
+                .antMatchers(HttpMethod.DELETE, "/**").access("#oauth2.hasScope('write')");
     }
 	
 	
