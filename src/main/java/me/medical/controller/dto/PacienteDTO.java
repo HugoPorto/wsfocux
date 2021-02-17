@@ -1,55 +1,26 @@
-package me.medical.model.paciente;
+package me.medical.controller.dto;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import me.medical.model.paciente.DadosContatoPaciente;
+import me.medical.model.paciente.DadosEnderecoPaciente;
+import me.medical.model.paciente.DadosPessoaisPaciente;
 
-@Entity(name = "paciente")
-public class PacienteModel {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PacienteDTO {
+	
 	private int id;
-
-	@Column
 	private String nome;
-
-	@Column
 	private String sexo;
-
-	@Column(name = "data_nascimento")
 	private Date dataDeNascimento;
-
-	@Column
 	private String cpf;
-
-	@Column
 	private String rg;
-
-	@Column(name = "orgao_expedidor")
 	private String orgaoExpedidor;
-
-	@Column(name = "cartao_nacional_saude")
 	private String cartaoNacionalDeSaude;
-
-	@Column(name = "observacao_sobre_o_paciente")
 	private String observacaoSobreOPaciente;
-
-	@Column(name = "foto")
 	private String foto;
-	
-	@OneToOne
-	@JoinColumn(name ="id_dados_pessoais_paciente")
 	private DadosPessoaisPaciente dadosPessoaisPaciente;
-	
-	@OneToOne
-	@JoinColumn(name = "id_dados_contato_paciente")
 	private DadosContatoPaciente dadosContatoPaciente;
-	
-	@OneToOne
-	@JoinColumn(name = "id_dados_endereco_paciente")
 	private DadosEnderecoPaciente dadosEnderecoPaciente;
-
 	public int getId() {
 		return id;
 	}
