@@ -11,7 +11,7 @@ import me.medical.model.paciente.PacienteModel;
 import me.medical.repository.PacienteRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/wsmedical_api1")
 public class PacienteController {
 	@Autowired private PacienteRepository pacienteRepository;
 	

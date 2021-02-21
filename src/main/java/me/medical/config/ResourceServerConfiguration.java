@@ -19,7 +19,6 @@ import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
-
 	@Value("${authmedical.auth.accessCheckTokenUri}")
 	private String accessTokenUri;
 	
@@ -34,8 +33,10 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http
             .authorizeRequests()
             .antMatchers(
-                    "/api/findAllOne/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/login/**").permitAll()
+                    "/wsmedical_api1/usuarios/**",
+                    "/wsmedical_api1/pacientes/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/login1/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/login2/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('read')")
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.POST, "/**").access("#oauth2.hasScope('write')")
@@ -76,6 +77,5 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 				return oauth;
 			}
 		};
-	}	
-	
+	}
 }
