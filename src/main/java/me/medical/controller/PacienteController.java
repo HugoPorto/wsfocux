@@ -25,7 +25,7 @@ public class PacienteController {
 		return pacienteRepository.findAll();
 	}
 	
-	@PostMapping("/salvar")
+	@PostMapping("/paciente/salvar")
 	public PacienteDTO  save(@RequestBody PacienteDTO  dto) {
 		PacienteModel paciente = converter.dtoToEntity(dto);
 		paciente = pacienteRepository.save(paciente);

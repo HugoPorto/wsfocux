@@ -76,7 +76,7 @@ public class UsuarioController {
 		return converter.entityToDto(usuario);
 	}
 
-	@PostMapping("/salvar")
+	@PostMapping("/usuario/salvar")
 	public UsuarioDTO save(@RequestBody UsuarioDTO dto) {
 		UsuarioModel usuario = converter.dtoToEntity(dto);
 		usuario = usuarioRepository.save(usuario);
