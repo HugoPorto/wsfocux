@@ -6,7 +6,6 @@ import me.medical.model.LoginModel;
 import me.medical.model.PerfilModel;
 
 public class UsuarioDTO {
-
 	private int id;
 	private String razaoSocial;
 	private String nomeDoResponsavel;

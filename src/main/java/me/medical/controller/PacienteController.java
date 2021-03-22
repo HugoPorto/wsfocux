@@ -25,13 +25,11 @@ public class PacienteController
 {
 	private final PacienteService pacienteService;
 	
-	@Autowired private PacienteRepository pacienteRepository;
+	@Autowired PacienteConverter converter;
 	@Autowired public PacienteController(PacienteService pacienteService) 
 	{
 		this.pacienteService = pacienteService;
 	}
-
-	@Autowired PacienteConverter converter;
 	
 	@GetMapping("/pacientes")
 	public List<PacienteDTO> listaPacientesDTO() 
@@ -44,7 +42,7 @@ public class PacienteController
 	public PacienteDTO save(@RequestBody PacienteDTO  dto) 
 	{
 		PacienteModel paciente = converter.dtoToEntity(dto);
-		paciente = pacienteRepository.save(paciente);
+		paciente = pacienteService.save(paciente);
 		return converter.entityToDto(paciente);
 	}
 	
