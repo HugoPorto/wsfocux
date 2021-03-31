@@ -9,8 +9,8 @@
 		<version>2.4.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>me.mp</groupId>
-	<artifactId>wsmp</artifactId>
+	<groupId>me.focux</groupId>
+	<artifactId>wsfocux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>wsmedical</name>
 	<description>API Medical</description>
