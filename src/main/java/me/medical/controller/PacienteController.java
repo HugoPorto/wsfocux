@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.medical.controller.dto.PacienteDTO;
-import me.medical.converter.PacienteConverter;
+import me.medical.converter.paciente.PacienteConverter;
 import me.medical.model.paciente.PacienteModel;
 import me.medical.repository.PacienteRepository;
 import me.medical.service.PacienteService;
@@ -40,6 +40,14 @@ public class PacienteController
 	
 	@PostMapping("/paciente/salvar")
 	public PacienteDTO save(@RequestBody PacienteDTO  dto) 
+	{
+		PacienteModel paciente = converter.dtoToEntity(dto);
+		paciente = pacienteService.save(paciente);
+		return converter.entityToDto(paciente);
+	}
+	
+	@PostMapping("/paciente/editar")
+	public PacienteDTO edit(@RequestBody PacienteDTO  dto) 
 	{
 		PacienteModel paciente = converter.dtoToEntity(dto);
 		paciente = pacienteService.save(paciente);

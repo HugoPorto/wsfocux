@@ -1,4 +1,4 @@
-package me.medical.converter;
+package me.medical.converter.usuario;
 
 import java.util.List;
 import java.util.stream.Collectors;

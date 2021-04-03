@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.medical.controller.dto.UsuarioDTO;
-import me.medical.converter.UsuarioConverter;
+import me.medical.converter.usuario.UsuarioConverter;
 import me.medical.model.UsuarioModel;
 import me.medical.repository.UsuarioCustomRepository;
 import me.medical.repository.UsuarioRepository;
