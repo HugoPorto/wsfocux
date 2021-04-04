@@ -1,11 +1,11 @@
-package me.medical.repository;
+package me.medical.repository.usuario;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import me.medical.model.UsuarioModel;
+import me.medical.model.usuario.UsuarioModel;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Integer> {
 	

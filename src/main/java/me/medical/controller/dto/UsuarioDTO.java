@@ -2,8 +2,8 @@ package me.medical.controller.dto;
 
 import java.util.Date;
 
-import me.medical.model.LoginModel;
-import me.medical.model.PerfilModel;
+import me.medical.model.usuario.LoginModel;
+import me.medical.model.usuario.PerfilModel;
 
 public class UsuarioDTO {
 	private int id;

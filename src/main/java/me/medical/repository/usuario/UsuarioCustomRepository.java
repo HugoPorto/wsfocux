@@ -1,4 +1,4 @@
-package me.medical.repository;
+package me.medical.repository.usuario;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
 
-import me.medical.model.UsuarioModel;
+import me.medical.model.usuario.UsuarioModel;
 
 @Repository
 public class UsuarioCustomRepository {

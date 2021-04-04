@@ -40,15 +40,15 @@ public class PacienteModel {
 	
 	@OneToOne
 	@JoinColumn(name ="id_dados_pessoais_paciente")
-	private DadosPessoaisPaciente dadosPessoaisPaciente;
+	private DadosPessoaisPacienteModel dadosPessoaisPaciente;
 	
 	@OneToOne
 	@JoinColumn(name = "id_dados_contato_paciente")
-	private DadosContatoPaciente dadosContatoPaciente;
+	private DadosContatoPacienteModel dadosContatoPaciente;
 	
 	@OneToOne
 	@JoinColumn(name = "id_dados_endereco_paciente")
-	private DadosEnderecoPaciente dadosEnderecoPaciente;
+	private DadosEnderecoPacienteModel dadosEnderecoPaciente;
 
 	public int getId() {
 		return id;
@@ -110,22 +110,22 @@ public class PacienteModel {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	public DadosPessoaisPaciente getDadosPessoaisPaciente() {
+	public DadosPessoaisPacienteModel getDadosPessoaisPaciente() {
 		return dadosPessoaisPaciente;
 	}
-	public void setDadosPessoaisPaciente(DadosPessoaisPaciente dadosPessoaisPaciente) {
+	public void setDadosPessoaisPaciente(DadosPessoaisPacienteModel dadosPessoaisPaciente) {
 		this.dadosPessoaisPaciente = dadosPessoaisPaciente;
 	}
-	public DadosContatoPaciente getDadosContatoPaciente() {
+	public DadosContatoPacienteModel getDadosContatoPaciente() {
 		return dadosContatoPaciente;
 	}
-	public void setDadosContatoPaciente(DadosContatoPaciente dadosContatoPaciente) {
+	public void setDadosContatoPaciente(DadosContatoPacienteModel dadosContatoPaciente) {
 		this.dadosContatoPaciente = dadosContatoPaciente;
 	}
-	public DadosEnderecoPaciente getDadosEnderecoPaciente() {
+	public DadosEnderecoPacienteModel getDadosEnderecoPaciente() {
 		return dadosEnderecoPaciente;
 	}
-	public void setDadosEnderecoPaciente(DadosEnderecoPaciente dadosEnderecoPaciente) {
+	public void setDadosEnderecoPaciente(DadosEnderecoPacienteModel dadosEnderecoPaciente) {
 		this.dadosEnderecoPaciente = dadosEnderecoPaciente;
 	}
 }

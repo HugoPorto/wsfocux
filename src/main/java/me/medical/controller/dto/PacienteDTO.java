@@ -2,12 +2,12 @@ package me.medical.controller.dto;
 
 import java.util.Date;
 
-import me.medical.model.paciente.DadosContatoPaciente;
-import me.medical.model.paciente.DadosEnderecoPaciente;
-import me.medical.model.paciente.DadosPessoaisPaciente;
+import me.medical.model.paciente.DadosContatoPacienteModel;
+import me.medical.model.paciente.DadosEnderecoPacienteModel;
+import me.medical.model.paciente.DadosPessoaisPacienteModel;
 
-public class PacienteDTO {
-	
+public class PacienteDTO 
+{
 	private int id;
 	private String nome;
 	private String sexo;
@@ -18,85 +18,137 @@ public class PacienteDTO {
 	private String cartaoNacionalDeSaude;
 	private String observacaoSobreOPaciente;
 	private String foto;
-	private DadosPessoaisPaciente dadosPessoaisPaciente;
-	private DadosContatoPaciente dadosContatoPaciente;
-	private DadosEnderecoPaciente dadosEnderecoPaciente;
-	public int getId() {
+	private DadosPessoaisPacienteModel dadosPessoaisPaciente;
+	private DadosContatoPacienteModel dadosContatoPaciente;
+	private DadosEnderecoPacienteModel dadosEnderecoPaciente;
+	
+	public int getId() 
+	{
 		return id;
 	}
-	public void setId(int id) {
+	
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
-	public String getNome() {
+	
+	public String getNome() 
+	{
 		return nome;
 	}
-	public void setNome(String nome) {
+	
+	public void setNome(String nome) 
+	{
 		this.nome = nome;
 	}
-	public String getSexo() {
+	
+	public String getSexo() 
+	{
 		return sexo;
 	}
-	public void setSexo(String sexo) {
+	
+	public void setSexo(String sexo) 
+	{
 		this.sexo = sexo;
 	}
-	public Date getDataDeNascimento() {
+	
+	public Date getDataDeNascimento() 
+	{
 		return dataDeNascimento;
 	}
-	public void setDataDeNascimento(Date dataDeNascimento) {
+	
+	public void setDataDeNascimento(Date dataDeNascimento) 
+	{
 		this.dataDeNascimento = dataDeNascimento;
 	}
-	public String getCpf() {
+	
+	public String getCpf() 
+	{
 		return cpf;
 	}
-	public void setCpf(String cpf) {
+	
+	public void setCpf(String cpf) 
+	{
 		this.cpf = cpf;
 	}
-	public String getRg() {
+	
+	public String getRg() 
+	{
 		return rg;
 	}
-	public void setRg(String rg) {
+	
+	public void setRg(String rg) 
+	{
 		this.rg = rg;
 	}
-	public String getOrgaoExpedidor() {
+	
+	public String getOrgaoExpedidor() 
+	{
 		return orgaoExpedidor;
 	}
-	public void setOrgaoExpedidor(String orgaoExpedidor) {
+	
+	public void setOrgaoExpedidor(String orgaoExpedidor) 
+	{
 		this.orgaoExpedidor = orgaoExpedidor;
 	}
-	public String getCartaoNacionalDeSaude() {
+	
+	public String getCartaoNacionalDeSaude() 
+	{
 		return cartaoNacionalDeSaude;
 	}
-	public void setCartaoNacionalDeSaude(String cartaoNacionalDeSaude) {
+	
+	public void setCartaoNacionalDeSaude(String cartaoNacionalDeSaude) 
+	{
 		this.cartaoNacionalDeSaude = cartaoNacionalDeSaude;
 	}
-	public String getObservacaoSobreOPaciente() {
+	
+	public String getObservacaoSobreOPaciente() 
+	{
 		return observacaoSobreOPaciente;
 	}
-	public void setObservacaoSobreOPaciente(String observacaoSobreOPaciente) {
+	
+	public void setObservacaoSobreOPaciente(String observacaoSobreOPaciente) 
+	{
 		this.observacaoSobreOPaciente = observacaoSobreOPaciente;
 	}
-	public String getFoto() {
+	
+	public String getFoto() 
+	{
 		return foto;
 	}
-	public void setFoto(String foto) {
+	
+	public void setFoto(String foto) 
+	{
 		this.foto = foto;
 	}
-	public DadosPessoaisPaciente getDadosPessoaisPaciente() {
+	
+	public DadosPessoaisPacienteModel getDadosPessoaisPaciente() 
+	{
 		return dadosPessoaisPaciente;
 	}
-	public void setDadosPessoaisPaciente(DadosPessoaisPaciente dadosPessoaisPaciente) {
+	
+	public void setDadosPessoaisPaciente(DadosPessoaisPacienteModel dadosPessoaisPaciente) 
+	{
 		this.dadosPessoaisPaciente = dadosPessoaisPaciente;
 	}
-	public DadosContatoPaciente getDadosContatoPaciente() {
+	
+	public DadosContatoPacienteModel getDadosContatoPaciente() 
+	{
 		return dadosContatoPaciente;
 	}
-	public void setDadosContatoPaciente(DadosContatoPaciente dadosContatoPaciente) {
+	
+	public void setDadosContatoPaciente(DadosContatoPacienteModel dadosContatoPaciente) 
+	{
 		this.dadosContatoPaciente = dadosContatoPaciente;
 	}
-	public DadosEnderecoPaciente getDadosEnderecoPaciente() {
+	
+	public DadosEnderecoPacienteModel getDadosEnderecoPaciente() 
+	{
 		return dadosEnderecoPaciente;
 	}
-	public void setDadosEnderecoPaciente(DadosEnderecoPaciente dadosEnderecoPaciente) {
+	
+	public void setDadosEnderecoPaciente(DadosEnderecoPacienteModel dadosEnderecoPaciente) 
+	{
 		this.dadosEnderecoPaciente = dadosEnderecoPaciente;
 	}
 }

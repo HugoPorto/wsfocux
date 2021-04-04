@@ -1,4 +1,4 @@
-package me.medical.service;
+package me.medical.service.paciente;
 
 import java.util.List;
 
@@ -6,22 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.medical.model.paciente.PacienteModel;
-import me.medical.repository.PacienteRepository;
+import me.medical.repository.paciente.PacienteRepository;
 
 /**
  * 
  * @author Hugo Porto
  *
  */
-@Service public class PacienteService
+@Service 
+public class PacienteService
 {
 	private PacienteRepository pacienteRepository;
 
-	/**
-	 * Construtor.
-	 * @param pacienteRepository Repository do paciente.
-	 */
-	@Autowired public PacienteService(PacienteRepository pacienteRepository) 
+	@Autowired
+	public PacienteService(PacienteRepository pacienteRepository) 
 	{
 		this.pacienteRepository = pacienteRepository;
 	}

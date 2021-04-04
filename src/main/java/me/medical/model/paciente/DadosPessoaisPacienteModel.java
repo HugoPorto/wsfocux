@@ -3,7 +3,7 @@ package me.medical.model.paciente;
 import javax.persistence.*;
 
 @Entity(name = "dados_pessoais_paciente")
-public class DadosPessoaisPaciente {
+public class DadosPessoaisPacienteModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

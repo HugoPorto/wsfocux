@@ -1,4 +1,4 @@
-package me.medical.model;
+package me.medical.model.usuario;
 
 import java.util.Date;
 

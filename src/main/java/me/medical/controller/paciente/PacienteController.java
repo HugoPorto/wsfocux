@@ -1,4 +1,4 @@
-package me.medical.controller;
+package me.medical.controller.paciente;
 
 import java.util.List;
 
@@ -16,48 +16,76 @@ import org.springframework.web.bind.annotation.RestController;
 import me.medical.controller.dto.PacienteDTO;
 import me.medical.converter.paciente.PacienteConverter;
 import me.medical.model.paciente.PacienteModel;
-import me.medical.repository.PacienteRepository;
-import me.medical.service.PacienteService;
+import me.medical.repository.paciente.PacienteRepository;
+import me.medical.service.paciente.PacienteService;
 
+/**
+ * 
+ * @author Hugo Porto
+ *
+ */
 @RestController
 @RequestMapping("/wsmedical_api1")
 public class PacienteController 
 {
 	private final PacienteService pacienteService;
 	
-	@Autowired PacienteConverter converter;
-	@Autowired public PacienteController(PacienteService pacienteService) 
+	@Autowired 
+	PacienteConverter pacienteConverter;
+	
+	@Autowired 
+	public PacienteController(PacienteService pacienteService) 
 	{
 		this.pacienteService = pacienteService;
 	}
 	
+	/**
+	 * Create
+	 * @param dto
+	 * @return
+	 */
+	@PostMapping("/paciente/salvar")
+	public PacienteDTO save(@RequestBody PacienteDTO  dto) 
+	{
+		PacienteModel paciente = pacienteConverter.dtoToEntity(dto);
+		paciente = pacienteService.save(paciente);
+		return pacienteConverter.entityToDto(paciente);
+	}
+
+	/**
+	 * Ready
+	 * @return
+	 */
 	@GetMapping("/pacientes")
 	public List<PacienteDTO> listaPacientesDTO() 
 	{
 		List<PacienteModel> findAll = pacienteService.getPacientes();
-		return converter.entityToDto(findAll);
+		return pacienteConverter.entityToDto(findAll);
 	}
 	
-	@PostMapping("/paciente/salvar")
-	public PacienteDTO save(@RequestBody PacienteDTO  dto) 
-	{
-		PacienteModel paciente = converter.dtoToEntity(dto);
-		paciente = pacienteService.save(paciente);
-		return converter.entityToDto(paciente);
-	}
-	
+	/**
+	 * Update
+	 * @param dto
+	 * @return
+	 */
 	@PostMapping("/paciente/editar")
 	public PacienteDTO edit(@RequestBody PacienteDTO  dto) 
 	{
-		PacienteModel paciente = converter.dtoToEntity(dto);
+		PacienteModel paciente = pacienteConverter.dtoToEntity(dto);
 		paciente = pacienteService.save(paciente);
-		return converter.entityToDto(paciente);
+		return pacienteConverter.entityToDto(paciente);
 	}
 	
+	/**
+	 * Delete
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	@DeleteMapping("/paciente/delete/{id}")
     public ResponseEntity<PacienteDTO> delete(@PathVariable final Integer id) throws Exception
 	{
         PacienteModel paciente = pacienteService.delete(id);
-        return new ResponseEntity<>(converter.entityToDto(paciente), HttpStatus.OK);
+        return new ResponseEntity<>(pacienteConverter.entityToDto(paciente), HttpStatus.OK);
     }
 }

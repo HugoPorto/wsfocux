@@ -1,4 +1,4 @@
-package me.medical.controller;
+package me.medical.controller.usuario;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import me.medical.controller.dto.UsuarioDTO;
 import me.medical.converter.usuario.UsuarioConverter;
-import me.medical.model.UsuarioModel;
-import me.medical.repository.UsuarioCustomRepository;
-import me.medical.repository.UsuarioRepository;
+import me.medical.model.usuario.UsuarioModel;
+import me.medical.repository.usuario.UsuarioCustomRepository;
+import me.medical.repository.usuario.UsuarioRepository;
 
 @RestController
 @RequestMapping("/wsmedical_api1")

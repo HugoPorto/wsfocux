@@ -7,7 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import me.medical.controller.dto.UsuarioDTO;
-import me.medical.model.UsuarioModel;
+import me.medical.model.usuario.UsuarioModel;
 
 @Component
 public class UsuarioConverter {
