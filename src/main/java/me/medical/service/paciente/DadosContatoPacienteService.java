@@ -14,7 +14,7 @@ import me.medical.repository.paciente.DadosContatoPacienteRepository;
  *
  */
 @Service 
-public class DadosContatoPacienteService 
+public class DadosContatoPacienteService
 {
 	private DadosContatoPacienteRepository dadosContatoPacienteRepository;
 
