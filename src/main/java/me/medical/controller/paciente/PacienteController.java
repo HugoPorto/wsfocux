@@ -40,7 +40,7 @@ public class PacienteController
 	}
 	
 	/**
-	 * Create
+	 * Salva
 	 * @param dto
 	 * @return
 	 */
@@ -53,7 +53,7 @@ public class PacienteController
 	}
 
 	/**
-	 * Ready
+	 * Lista
 	 * @return
 	 */
 	@GetMapping("/pacientes")
@@ -64,7 +64,7 @@ public class PacienteController
 	}
 	
 	/**
-	 * Update
+	 * Atualiza
 	 * @param dto
 	 * @return
 	 */
@@ -77,7 +77,7 @@ public class PacienteController
 	}
 	
 	/**
-	 * Delete
+	 * Deleta
 	 * @param id
 	 * @return
 	 * @throws Exception
@@ -88,4 +88,18 @@ public class PacienteController
         PacienteModel paciente = pacienteService.delete(id);
         return new ResponseEntity<>(pacienteConverter.entityToDto(paciente), HttpStatus.OK);
     }
+	
+	@GetMapping("/paciente/{id}")
+	public PacienteDTO paciente(@PathVariable final Integer id) {
+		PacienteModel paciente = null;
+		
+		try {
+			paciente = pacienteService.getPaciente(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return pacienteConverter.entityToDto(paciente);
+	}
 }
