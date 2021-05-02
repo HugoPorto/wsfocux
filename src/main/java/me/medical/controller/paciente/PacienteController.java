@@ -90,7 +90,7 @@ public class PacienteController
     }
 	
 	@GetMapping("/paciente/{id}")
-	public PacienteDTO paciente(@PathVariable final Integer id) {
+	public PacienteDTO pacienteDTO(@PathVariable final Integer id) {
 		PacienteModel paciente = null;
 		
 		try {
