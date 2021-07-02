@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.franciscocalaca.http.utils.Token;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/login1")
 public class LoginRest {
 	
 	@Autowired

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import me.medical.controller.dto.PacienteDTO;
 import me.medical.converter.paciente.PacienteConverter;
 import me.medical.model.paciente.PacienteModel;
-import me.medical.repository.paciente.PacienteRepository;
 import me.medical.service.paciente.PacienteService;
 
 /**
@@ -40,12 +39,12 @@ public class PacienteController
 	}
 	
 	/**
-	 * Salva
+	 * Salva o [paciente]
 	 * @param dto
 	 * @return
 	 */
-	@PostMapping("/paciente/salvar")
-	public PacienteDTO save(@RequestBody PacienteDTO  dto) 
+	@PostMapping("/paciente/salva-paciente")
+	public PacienteDTO salvaPaciente(@RequestBody PacienteDTO  dto) 
 	{
 		PacienteModel paciente = pacienteConverter.dtoToEntity(dto);
 		paciente = pacienteService.save(paciente);
@@ -53,10 +52,10 @@ public class PacienteController
 	}
 
 	/**
-	 * Lista
+	 * Lista os [pacientes]
 	 * @return
 	 */
-	@GetMapping("/pacientes")
+	@GetMapping("/lista-pacientes")
 	public List<PacienteDTO> listaPacientesDTO() 
 	{
 		List<PacienteModel> findAll = pacienteService.getPacientes();
@@ -64,12 +63,12 @@ public class PacienteController
 	}
 	
 	/**
-	 * Atualiza
+	 * Atualiza um [paciente]
 	 * @param dto
 	 * @return
 	 */
-	@PostMapping("/paciente/editar")
-	public PacienteDTO edit(@RequestBody PacienteDTO  dto) 
+	@PostMapping("/paciente/editar-paciente")
+	public PacienteDTO editaPaciente(@RequestBody PacienteDTO  dto) 
 	{
 		PacienteModel paciente = pacienteConverter.dtoToEntity(dto);
 		paciente = pacienteService.save(paciente);
@@ -77,19 +76,24 @@ public class PacienteController
 	}
 	
 	/**
-	 * Deleta
+	 * Deleta um [paciente]
 	 * @param id
 	 * @return
 	 * @throws Exception
 	 */
-	@DeleteMapping("/paciente/delete/{id}")
+	@DeleteMapping("/paciente/apaga-paciente/{id}")
     public ResponseEntity<PacienteDTO> delete(@PathVariable final Integer id) throws Exception
 	{
         PacienteModel paciente = pacienteService.delete(id);
         return new ResponseEntity<>(pacienteConverter.entityToDto(paciente), HttpStatus.OK);
     }
 	
-	@GetMapping("/paciente/{id}")
+	/**
+	 * Retorna um [paciente]
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/retorna-um-paciente/{id}")
 	public PacienteDTO pacienteDTO(@PathVariable final Integer id) {
 		PacienteModel paciente = null;
 		
