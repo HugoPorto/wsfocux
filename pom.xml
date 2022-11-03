@@ -9,11 +9,11 @@
 		<version>2.4.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>me.focux</groupId>
-	<artifactId>wsfocux</artifactId>
+	<groupId>ws.system</groupId>
+	<artifactId>wssystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>wsmedical</name>
-	<description>API Medical</description>
+	<name>wssystem</name>
+	<description>API System</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
